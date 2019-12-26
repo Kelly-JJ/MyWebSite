@@ -1,0 +1,15 @@
+server:
+  port: 8082  #tomcat 启动端口号
+spring:
+  dubbo:
+    application:
+      name: web
+    base-package: com.gjj.website.facaded.service  # dubbo服务发布者实现类注解所在的包
+    registry:
+      address: 127.0.0.1              # zookeeper注册中心的地址
+      port: 2181                           # zookeeper注册中心的端口
+    protocol:
+      name: dubbo
+      serialization: hessian2
+    provider:
+      retries: 0

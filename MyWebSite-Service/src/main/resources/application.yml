@@ -1,0 +1,23 @@
+server:
+  port: 8081 #tomcat端口号
+spring:
+  dubbo:
+    application:
+      name: service
+    # dubbo服务发布者实现类注解所在的包
+      base-package: com.gjj.website.facaded.service
+    registry:
+    # zookeeper注册中心的地址
+      address: 127.0.0.1
+    # zookeeper注册中心的端口
+      port: 2181
+    protocol:
+      name: dubbo
+      serialization: hessian2
+    provider:
+      retries: 0
+  datasource:
+    data-username: root
+    data-password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc.mysql://localhost:3306/website?serverTimezone=UTC
