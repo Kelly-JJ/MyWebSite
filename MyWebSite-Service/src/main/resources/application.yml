@@ -5,7 +5,7 @@ spring:
     application:
       name: service
     # dubbo服务发布者实现类注解所在的包
-      base-package: com.gjj.website.facaded.service
+      base-package: com.gjj.website.facaded.service# dubbo服务发布者接口所在的包（非实现类）
     registry:
     # zookeeper注册中心的地址
       address: 127.0.0.1
