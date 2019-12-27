@@ -1,13 +1,13 @@
 server:
-  port: 8082  #tomcat Æô¶¯¶Ë¿ÚºÅ
+  port: 8082  #tomcat å¯åŠ¨ç«¯å£å·
 spring:
   dubbo:
     application:
       name: web
-    base-package: com.gjj.website.facaded.service  # dubbo·şÎñ·¢²¼Õß½Ó¿ÚËùÔÚµÄ°ü£¨·ÇÊµÏÖÀà£©
+    base-package: com.gjj.website.facaded.service  # dubboæœåŠ¡å‘å¸ƒè€…æ¥å£æ‰€åœ¨çš„åŒ…ï¼ˆéå®ç°ç±»ï¼‰
     registry:
-      address: 127.0.0.1              # zookeeper×¢²áÖĞĞÄµÄµØÖ·
-      port: 2181                           # zookeeper×¢²áÖĞĞÄµÄ¶Ë¿Ú
+      address: 127.0.0.1              # zookeeperæ³¨å†Œä¸­å¿ƒçš„åœ°å€
+      port: 2181                           # zookeeperæ³¨å†Œä¸­å¿ƒçš„ç«¯å£
     protocol:
       name: dubbo
       serialization: hessian2

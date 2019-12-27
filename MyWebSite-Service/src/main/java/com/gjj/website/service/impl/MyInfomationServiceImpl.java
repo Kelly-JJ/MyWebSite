@@ -1,7 +1,12 @@
 package com.gjj.website.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.gjj.website.facaded.model.MyInfomation;
 import com.gjj.website.facaded.service.MyInfomationService;
+import com.gjj.website.service.mapper.MyInfomationMapper;
+
+import javax.annotation.Resource;
 
 /**
  * @author :
@@ -9,9 +14,20 @@ import com.gjj.website.facaded.service.MyInfomationService;
  */
 @Service(interfaceClass = MyInfomationService.class)
 public class MyInfomationServiceImpl implements MyInfomationService {
-    @Override
-    public String hello(String str) {
 
-        return str;
+
+    @Resource
+    private MyInfomationMapper infomationMapper;
+
+    @Override
+    public MyInfomation selectOne(Integer userId) {
+
+        return infomationMapper.selectOneById(userId);
+    }
+
+    @Override
+    public void updateName(MyInfomation myInfomation) {
+        infomationMapper.updateName(myInfomation);
+
     }
 }

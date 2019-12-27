@@ -1,6 +1,7 @@
 package com.gjj.website.web.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.gjj.website.facaded.model.MyInfomation;
 import com.gjj.website.facaded.service.MyInfomationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,14 +19,24 @@ import javax.annotation.Resource;
 public class MyInfomationController {
 
     @Reference
-//    @Resource
     private MyInfomationService service;
 
-    @RequestMapping("hello")
+    @RequestMapping("selectOne")
     @ResponseBody
-    public String hello() {
-        String str = "hello";
-        String hello = service.hello(str);
-        return hello;
+    public Object selectOne() {
+        Integer userId = 1;
+        return service.selectOne(userId);
     }
+
+    @RequestMapping("update")
+    @ResponseBody
+    public Object update() {
+        MyInfomation myInfomation = new MyInfomation();
+        Integer userId = 1;
+        myInfomation.setUserId(userId);
+        myInfomation.setName("哈哈哈哈");
+        service.updateName(myInfomation);
+        return service.selectOne(userId);
+    }
+
 }

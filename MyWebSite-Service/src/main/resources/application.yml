@@ -1,15 +1,16 @@
 server:
-  port: 8081 #tomcat¶Ë¿ÚºÅ
+  #tomcatç«¯å£å·
+  port: 8081
 spring:
   dubbo:
     application:
       name: service
-    # dubbo·şÎñ·¢²¼ÕßÊµÏÖÀà×¢½âËùÔÚµÄ°ü
-      base-package: com.gjj.website.facaded.service# dubbo·şÎñ·¢²¼Õß½Ó¿ÚËùÔÚµÄ°ü£¨·ÇÊµÏÖÀà£©
+        # dubboæœåŠ¡å‘å¸ƒè€…æ¥å£æ‰€åœ¨çš„åŒ…ï¼ˆéå®ç°ç±»ï¼‰
+    base-package: com.gjj.website.facaded.service
     registry:
-    # zookeeper×¢²áÖĞĞÄµÄµØÖ·
+    # zookeeperæ³¨å†Œä¸­å¿ƒçš„åœ°å€
       address: 127.0.0.1
-    # zookeeper×¢²áÖĞĞÄµÄ¶Ë¿Ú
+    # zookeeperæ³¨å†Œä¸­å¿ƒçš„ç«¯å£
       port: 2181
     protocol:
       name: dubbo
@@ -20,4 +21,10 @@ spring:
     data-username: root
     data-password: admin
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc.mysql://localhost:3306/website?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/website?serverTimezone=UTC
+mybatis:
+    mapper-locations: classpath:com/gjj/website/service/mapper/xml/*Mapper.xml
+    typeAliasesPackage: com.gjj.website.facaded.model
+    configuration:
+      map-underscore-to-camel-case: true
+      use-generated-keys: true
