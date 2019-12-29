@@ -29,7 +29,7 @@ public class MyInfomationController {
     @PostMapping("selectOne")
     @ResponseBody
     @ApiOperation(value = "查询详情")
-    public Object selectOne(@RequestBody Map<Object,Object> model) {
+    public Object selectOne(@RequestBody Map<Object, Object> model) {
         return service.selectOne(Integer.valueOf(model.get("userId").toString()));
     }
 
@@ -44,5 +44,13 @@ public class MyInfomationController {
         service.updateName(myInfomation);
         return service.selectOne(userId);
     }
+
+
+    @RequestMapping("toTestA")
+    @ApiOperation(value = "重定向到页面")
+    public String toTestA() {
+        return "testA";
+    }
+
 
 }

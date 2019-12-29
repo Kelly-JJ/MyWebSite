@@ -16,3 +16,12 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
+  thymeleaf:
+    encoding: UTF-8
+    suffix: .html
+    prefix: classpath:/templates/
+    mode: HTML5
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/,classpath:/templates/,classpath:/resources,classpath:/META-INF/resources
