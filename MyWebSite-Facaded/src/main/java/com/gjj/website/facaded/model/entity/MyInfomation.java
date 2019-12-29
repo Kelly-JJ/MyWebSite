@@ -1,4 +1,4 @@
-package com.gjj.website.facaded.model;
+package com.gjj.website.facaded.model.entity;
 
 import lombok.Data;
 

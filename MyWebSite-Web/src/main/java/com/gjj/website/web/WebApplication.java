@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication(scanBasePackages = {"com.gjj.website.*"},exclude = DataSourceAutoConfiguration.class)
 @EnableDubbo
 public class WebApplication implements CommandLineRunner {
 

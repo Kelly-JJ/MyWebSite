@@ -1,8 +1,7 @@
 package com.gjj.website.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
-import com.gjj.website.facaded.model.MyInfomation;
+import com.gjj.website.facaded.model.entity.MyInfomation;
 import com.gjj.website.facaded.service.MyInfomationService;
 import com.gjj.website.service.mapper.MyInfomationMapper;
 

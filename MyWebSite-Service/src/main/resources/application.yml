@@ -15,13 +15,15 @@ spring:
     protocol:
       name: dubbo
       serialization: hessian2
-    provider:
+    consumer:
       retries: 0
+      timeout: 50000
   datasource:
     data-username: root
     data-password: admin
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/website?serverTimezone=UTC
+    type: com.alibaba.druid.pool.DruidDataSource
 mybatis:
     mapper-locations: classpath:com/gjj/website/service/mapper/xml/*Mapper.xml
     typeAliasesPackage: com.gjj.website.facaded.model

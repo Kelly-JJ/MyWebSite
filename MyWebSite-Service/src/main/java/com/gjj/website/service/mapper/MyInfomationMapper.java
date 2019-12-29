@@ -1,6 +1,6 @@
 package com.gjj.website.service.mapper;
 
-import com.gjj.website.facaded.model.MyInfomation;
+import com.gjj.website.facaded.model.entity.MyInfomation;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 

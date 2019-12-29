@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gjj.website.service.mapper.MyInfomationMapper">
-    <resultMap id="MyInfomationMap" type="com.gjj.website.facaded.model.MyInfomation">
+    <resultMap id="MyInfomationMap" type="com.gjj.website.facaded.model.entity.MyInfomation">
         <result column="user_id" property="userId"/>
         <result column="name" property="name"/>
         <result column="phone" property="phone"/>
@@ -14,7 +14,7 @@
         update my_infomation set name = #{name} where user_id = #{userId}
     </update>
 
-    <select id="selectOneById" resultType="com.gjj.website.facaded.model.MyInfomation" useCache="false">
+    <select id="selectOneById" resultType="com.gjj.website.facaded.model.entity.MyInfomation" useCache="false">
         select * from my_infomation where user_id = #{userId}
     </select>
 </mapper>

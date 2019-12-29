@@ -1,6 +1,6 @@
 package com.gjj.website.facaded.service;
 
-import com.gjj.website.facaded.model.MyInfomation;
+import com.gjj.website.facaded.model.entity.MyInfomation;
 
 /**
  * @author :
