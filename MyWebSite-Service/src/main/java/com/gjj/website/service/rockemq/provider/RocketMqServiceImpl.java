@@ -23,6 +23,6 @@ public class RocketMqServiceImpl implements RocketMqService {
         template.convertAndSend("test-topic-1", message+"-----------------");
         template.send("test-topic-2", MessageBuilder.withPayload(message).build());
 
-        System.err.println("发送成功...");
+        System.err.println("发送成功.......");
     }
 }
