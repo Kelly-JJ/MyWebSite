@@ -4,7 +4,114 @@
     <meta charset="UTF-8">
     <title>测试</title>
 </head>
+<style>
+    .red {
+        color: red;
+    }
+
+    .blue {
+        color: blue;
+        font-size: 100px;
+    }
+</style>
 <body>
 嘿嘿诶诶诶
+<div id="app" v-once>
+    {{message}}
+    <p>Using mustaches:{{ rawHtml }}</p>
+    <p v-html="rawHtml"></p>
+    <div v-bind:class="color">test....</div>
+    <p>{{ number +1 }}</p>
+    <p>{{ ok ? 'yes' : 'no'}}</p>
+    <!-- 拆分msg，并反序排列，并拼接 -->
+    <p>{{ msg.split('').reverse().join('') }}</p>
+</div>
+<div id="app-2">
+    <p v-if="seen"> 你现在能看到我吗 </p>
+    <a v-bind:href="url">百度链接</a>
+    <div @click="click1">
+        <div @click.stop="click2">
+            click me
+        </div>
+    </div>
+</div>
+
+<div id="example">
+    <p>Original message: "{{ message }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+
+<div id="app-3">
+    <ul>
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+    </ul>
+</div>
+<script src="../static/js/vue.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "今天天气真好！",
+            rawHtml: '<span style="color: red">this is should be red </span>',
+            color: "blue",
+            number: 10,
+            ok: true,
+            msg: "vue"
+        }
+    })
+    app.message = "hi"
+    var app2 = new Vue({
+        el: "#app-2",
+        data: {
+            seen: true,
+            url: "https://cn.vuejs.org/v2/guide/syntax.html",
+        },
+        methods: {
+            click1: function () {
+                console.log("click1............")
+            },
+            click2: function () {
+                console.log("click2---------------")
+            }
+        }
+    })
+
+    var example = new Vue({
+        el: '#example',
+        data: {
+            message: "hello"
+        },
+        computed: {
+            reversedMessage: function () {
+                return this.message.split("").reverse().join("");
+            }
+        }
+    })
+
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            items: [
+                {message: 'Food'},
+                {message: 'Bar'}
+            ],
+            object:{
+                title:"我是你爸爸",
+                author:"龚建军",
+                // time:Date.prototype.format(new Date(),'yyyy-MM-dd HH:mm:ss')
+            }
+        }
+
+    })
+
+
+</script>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.apache.rocketmq.spring.core.RocketMQListener;
  */
 @Service
 @RocketMQMessageListener(topic = "test-topic-2", consumerGroup = "my-consumer_test-topic-2")
+//test-topic-2监听该通道的消息
 public class RocketMqConsumerImpl implements RocketMQListener<String> {
 
     @Override

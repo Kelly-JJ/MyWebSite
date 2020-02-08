@@ -20,7 +20,6 @@ public class RocketMqServiceImpl implements RocketMqService {
 
     @Override
     public void sendMessage(String message) {
-        template.convertAndSend("test-topic-1", message+"-----------------");
         template.send("test-topic-2", MessageBuilder.withPayload(message).build());
 
         System.err.println("发送成功.......");
