@@ -1,19 +1,23 @@
-package com.gjj.website.web;
+package com.gjj.website.web.core;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@SpringBootTest
-class WebApplicationTests {
+/**
+ * @author :
+ * @since 2020/2/21 15:47
+ */
 
+@Component
+public class JDBCDemo {
     @Value("${spring.datasource.driver-class-name}")
     private  String jdbcName;
 
@@ -31,6 +35,7 @@ class WebApplicationTests {
         try {
             Class.forName(jdbcName);
             Connection con = DriverManager.getConnection(url, user, password);
+            //要修改的语句
             String sql = "select * from my_infomation ";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -43,9 +48,6 @@ class WebApplicationTests {
                 }
                 dataList.add(map);
             }
-            for (int i = 0; i < dataList.size(); i++) {
-                System.out.println(dataList.get(i).get("live_place"));
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,12 +55,4 @@ class WebApplicationTests {
         return dataList;
     }
 
-    @Test
-    public  void test() {
-        System.out.println(jdbcName);
-        System.out.println(url);
-        System.out.println(user);
-        System.out.println(password);
-        getMessage();
-    }
 }

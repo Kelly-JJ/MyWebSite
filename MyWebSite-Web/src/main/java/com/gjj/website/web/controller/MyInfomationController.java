@@ -5,12 +5,15 @@ import com.gjj.website.common.util.RedisUtil;
 import com.gjj.website.facaded.model.common.RedisKey;
 import com.gjj.website.facaded.model.entity.MyInfomation;
 import com.gjj.website.facaded.service.MyInfomationService;
+import com.gjj.website.web.core.JDBCDemo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,15 +31,26 @@ public class MyInfomationController {
     @Resource
     private RedisUtil redisUtil;
 
+    @Resource
+    private JDBCDemo jdbcDemo;
+
     @PostMapping("selectOne")
     @ResponseBody
     @ApiOperation(value = "查询详情")
     public Object selectOne(@RequestBody Map<Object, Object> model) {
-        MyInfomation myInfomation ;
+
+        List<Map<String, Object>> message = jdbcDemo.getMessage();
+//        ProducerRecord<byte[],byte[]> record ;
+//        for (Map<String, Object> map : message) {
+//            record = new ProducerRecord<>(TOPIC, Demo.getMessage().getBytes("utf-8"),"bbb".getBytes("utf-8"));
+//        }
+
+        MyInfomation myInfomation;
         String userId = model.get("userId").toString();
         String key = RedisKey.MYINFOMATION_USER_ID_+userId;
         if (!redisUtil.hasKey(key)){
             myInfomation= service.selectOne(Integer.valueOf(userId));
+            System.out.println(myInfomation);
             redisUtil.set(key,myInfomation,2000);
         }else{
             myInfomation =(MyInfomation)redisUtil.get(key);

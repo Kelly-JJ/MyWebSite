@@ -14,13 +14,12 @@ import javax.annotation.Resource;
 @Service(interfaceClass = MyInfomationService.class)
 public class MyInfomationServiceImpl implements MyInfomationService {
 
-
     @Resource
     private MyInfomationMapper infomationMapper;
 
     @Override
     public MyInfomation selectOne(Integer userId) {
-
+        //
         return infomationMapper.selectOneById(userId);
     }
 
